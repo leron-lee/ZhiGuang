@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.links {
+namespace Web.admin.links {
     
     
     public partial class sisu_up {

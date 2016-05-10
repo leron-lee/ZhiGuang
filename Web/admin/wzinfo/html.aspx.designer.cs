@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.wzinfo {
+namespace Web.admin.wzinfo {
     
     
     public partial class html {

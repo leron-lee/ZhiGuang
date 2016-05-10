@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.username {
+namespace Web.admin.username {
     
     
     public partial class wyzdl {

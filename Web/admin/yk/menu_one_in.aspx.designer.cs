@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.yk {
+namespace Web.admin.yk {
     
     
     public partial class menu_one_in {

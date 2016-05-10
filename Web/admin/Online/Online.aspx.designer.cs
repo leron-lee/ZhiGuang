@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.Online {
+namespace Web.admin.Online {
     
     
     public partial class Online {

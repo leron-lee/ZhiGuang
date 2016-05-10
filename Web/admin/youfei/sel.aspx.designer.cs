@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.youfei {
+namespace Web.admin.youfei {
     
     
     public partial class sel {

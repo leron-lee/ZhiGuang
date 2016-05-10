@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.news {
+namespace Web.admin.news {
     
     
     public partial class news_in {

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.cjh {
+namespace Web.admin.cjh {
     
     
     public partial class add_cjh {

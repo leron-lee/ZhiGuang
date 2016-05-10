@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.mail {
+namespace Web.admin.mail {
     
     
     public partial class mail {

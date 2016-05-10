@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.wx {
+namespace Web.admin.wx {
     
     
     public partial class menu {

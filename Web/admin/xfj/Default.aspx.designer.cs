@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.xfj {
+namespace Web.admin.xfj {
     
     
     public partial class Default {

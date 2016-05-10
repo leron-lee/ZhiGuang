@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.type {
+namespace Web.admin.type {
     
     
     public partial class type_one {

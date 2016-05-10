@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.html {
+namespace Web.admin.html {
     
     
     public partial class html {

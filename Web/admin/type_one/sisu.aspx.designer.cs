@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.type_one {
+namespace Web.admin.type_one {
     
     
     public partial class sisu {

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.AdminFx.uppassword {
+namespace Web.admin.uppassword {
     
     
     public partial class sisu {
