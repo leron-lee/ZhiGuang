@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.shoporder {
+namespace Web.AdminFx.shoporder {
     
     
     public partial class shoporder_l {

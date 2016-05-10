@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.wzinfo {
+namespace Web.AdminFx.wzinfo {
     
     
     public partial class cache {

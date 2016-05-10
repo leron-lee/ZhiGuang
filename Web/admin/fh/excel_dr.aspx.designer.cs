@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.fh {
+namespace Web.AdminFx.fh {
     
     
     public partial class excel_dr {

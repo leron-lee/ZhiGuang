@@ -104,6 +104,21 @@ namespace Web.admin
                                         }
                                         else
                                         {
+                                            /*新增代理商进行商品管理*/
+                                            string SqlString2 = "select id from wysdv where username=@username ";
+                                            int Temp = new SqlHelper().ExecuteNonQuery(SqlString2, sp);
+                                            if (Temp == 1)
+                                            {
+                                                string SqlString3 = "select pwd from username where username=@username";
+                                                if (t2 == new SqlHelper().ExecuteScalar(SqlString3, sp))
+                                                {
+                                                    HttpCookie cook = new HttpCookie("fx");
+                                                    cook.Expires = System.DateTime.Now.AddHours(24.0);
+                                                    cook.Value = base.Server.UrlEncode(t);
+                                                    base.Response.Cookies.Add(cook);
+                                                    base.Response.Redirect("admin.aspx");
+                                                }
+                                            }
                                             base.Response.Write("<script>alert('密码错误');location.href='" + base.Request.RawUrl + "';</script>");
                                             base.Response.End();
                                         }

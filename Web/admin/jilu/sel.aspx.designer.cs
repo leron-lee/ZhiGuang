@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.jilu {
+namespace Web.AdminFx.jilu {
     
     
     public partial class sel {

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.Merchandise {
+namespace Web.AdminFx.Merchandise {
     
     
     public partial class merchandise {

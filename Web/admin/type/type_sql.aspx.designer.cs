@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.type {
+namespace Web.AdminFx.type {
     
     
     public partial class type_sql {

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.news {
+namespace Web.AdminFx.news {
     
     
     public partial class new_type {

@@ -20,11 +20,6 @@ namespace Web
         {
             if (!base.IsPostBack)
             {
-
-
-             
-
-
                 this.img = get.logoimg();
                 this.name = get.gsstr();
                 if (base.Request.Cookies["zksk"] == null)
@@ -63,9 +58,6 @@ namespace Web
                 }
                 if (base.Request.Cookies["username"] != null)
                 {
-
-                   
-
                     this.Panel2.Visible = false;
                     string username = base.Server.UrlDecode(base.Request.Cookies["username"].Value);
                     string aix = new SqlHelper().ExecuteScalar("select sum([price]) from shoporder where zt > 1 and username = '" + username + "'");
@@ -93,8 +85,7 @@ namespace Web
                     }
                 }
                 else
-                {
-                
+                {                
                     string text = getwx.AppId();
                     string text2 = getwx.AppSecret();
                     base.Response.Redirect(string.Concat(new string[]

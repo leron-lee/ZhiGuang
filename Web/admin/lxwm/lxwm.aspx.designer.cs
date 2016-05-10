@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.lxwm {
+namespace Web.AdminFx.lxwm {
     
     
     public partial class lxwm {

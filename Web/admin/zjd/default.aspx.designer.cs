@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.zjd {
+namespace Web.AdminFx.zjd {
     
     
     public partial class _default {

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.file {
+namespace Web.AdminFx.file {
     
     
     public partial class file_insert {

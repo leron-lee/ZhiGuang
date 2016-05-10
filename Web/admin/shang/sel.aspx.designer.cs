@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.shang {
+namespace Web.AdminFx.shang {
     
     
     public partial class sel {

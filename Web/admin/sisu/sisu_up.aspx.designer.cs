@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.sisu {
+namespace Web.AdminFx.sisu {
     
     
     public partial class sisu_up {

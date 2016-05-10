@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.uppassword {
+namespace Web.AdminFx.uppassword {
     
     
     public partial class pass_in {

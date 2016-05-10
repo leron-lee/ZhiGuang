@@ -10,7 +10,7 @@
 namespace Web.admin {
     
     
-    public partial class admin {
+    public partial class AdminFx {
         
         /// <summary>
         /// form1 控件。

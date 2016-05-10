@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\admin.aspx" />
+    <Content Include="admin\AdminFx.aspx" />
     <Content Include="admin\cjh\add_cjh.aspx" />
     <Content Include="admin\cjh\add_cjhnews.aspx" />
     <Content Include="admin\cjh\cjhnews_list.aspx" />
@@ -6449,6 +6451,13 @@
     </Compile>
     <Compile Include="admin\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AdminFx.aspx.cs">
+      <DependentUpon>AdminFx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AdminFx.aspx.designer.cs">
+      <DependentUpon>AdminFx.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\admin_master.Master.cs">
       <DependentUpon>admin_master.Master</DependentUpon>

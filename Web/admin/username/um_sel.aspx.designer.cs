@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.username {
+namespace Web.AdminFx.username {
     
     
     public partial class um_sel {

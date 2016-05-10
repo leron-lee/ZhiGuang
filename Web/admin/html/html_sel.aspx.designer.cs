@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.html {
+namespace Web.AdminFx.html {
     
     
     public partial class html_sel {

@@ -5,27 +5,30 @@ public class json
     {
         string fig = "";
         int cd = s1.Length;
-        s1 = s1.Substring(1, cd - 2).Replace("http:", "http");
-        string[] sk = s1.Split(new char[]
-		{
-			','
-		});
-        string[] array = sk;
-        for (int i = 0; i < array.Length; i++)
+        if (s1.Length > 0)
         {
-            string sa = array[i];
-            string[] st = sa.Split(new char[]
-			{
-				':'
-			});
-            if (st[0].Replace("\"", "") == s2)
+            s1 = s1.Substring(1, cd - 2).Replace("http:", "http");
+            string[] sk = s1.Split(new char[]
             {
-                fig = st[1].Replace("\"", "");
+            ','
+            });
+            string[] array = sk;
+            for (int i = 0; i < array.Length; i++)
+            {
+                string sa = array[i];
+                string[] st = sa.Split(new char[]
+                {
+                ':'
+                });
+                if (st[0].Replace("\"", "") == s2)
+                {
+                    fig = st[1].Replace("\"", "");
+                }
             }
-        }
-        if (fig.Contains("http"))
-        {
-            fig = fig.Replace("http", "http:").Replace("\\", "");
+            if (fig.Contains("http"))
+            {
+                fig = fig.Replace("http", "http:").Replace("\\", "");
+            }
         }
         return fig;
     }

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.cjh {
+namespace Web.AdminFx.cjh {
     
     
     public partial class cjhnews_list {

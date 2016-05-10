@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Web.admin.ye {
+namespace Web.AdminFx.ye {
     
     
     public partial class Default {
