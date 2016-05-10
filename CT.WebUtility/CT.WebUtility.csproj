@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.3077</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC799498-E062-408E-94EE-15156664F58F}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>CT.WebUtility</AssemblyName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Name>System.Configuration</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Application.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Cache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Check.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Condition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Cookie.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\CoreClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\CoreClassInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\DCoreClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\DecryptConnStr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\DESEncrypt.cs" />
+    <Compile Include="CT\WebUtility\Directory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Email.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Encrypt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\File.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Fun.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Is.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Javascript.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\PageList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Req.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Res.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Session.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Sql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\Statics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\UpFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CT\WebUtility\XmlHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

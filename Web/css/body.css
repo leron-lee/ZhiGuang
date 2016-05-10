@@ -1,0 +1,95 @@
+﻿html { overflow-x: hidden; }
+body {font-family:微软雅黑;font-size:12px;line-height:23px;color:#444444;-webkit-text-size-adjust: none;}
+body *{word-wrap:break-word;}
+input[type=button], input[type=text], input[type=submit], input[type=file] { -webkit-appearance: none; }
+body,ul{margin:0px;padding:0px;}
+table{text-align:left;border-collapse:collapse;}
+a {color:#444444;text-decoration:none;}
+a { outline: none; star: expression(this.onFocus=this.blur()); -moz-outline: none; }
+
+.doc
+{
+    width:100%;margin:0px auto;
+}
+.yahei { font-family:微软雅黑,Microsoft YaHei;}
+img {border:0;}
+th { text-align:center;}
+.b_l{float:left;display:inline;}
+.b_r{float:right;display:inline;}
+.b_l_w{float:left;display:inline;width:100%;}
+.b_r_w{float:left;display:inline;width:100%;}
+.dis{display:none;}
+textarea { overflow-x: hidden;overflow-y:auto; }
+#zifull2 img{display:inline;}
+#zifull2 td{text-align:center;}
+div{text-align:left;}
+li { list-style:none;}
+.bs a,.bs { color:#fff;}
+.bs a:hover { color:#fff;}
+.clear { clear: both; }
+.b { font-weight:bold;}
+
+.select 
+{
+    -webkit-appearance: none;
+    width:100%;
+    background-image:url(/images/xlt.png);
+    background-position:100% center;
+    background-repeat:no-repeat;
+    border-radius:0px;
+    border:1px solid #ccc;
+    padding:8px;
+    color:#444;
+    border-radius:5px;
+    background-color:transparent;
+}
+
+.zglist a { float: left; width: 33%; font-size: 14px; margin-top: 5px;text-align:center; }
+
+.ipt { border: 1px solid #ccc; padding: 8px; color: #444; display: block; background-color: #fff; border-radius: 5px; position: relative; z-index: 2; }
+.ipt input, .ipt textarea { display: block; width: 100%; height: 100%; border: 0px; background-color: transparent; position: relative; z-index: 2; }
+.bt_ys { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px;border:0px; background-color: #FF6100; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px; border-bottom: 3px solid #A53800;text-align:center; }
+.bt_hon { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #DA0000; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+.bt_lan { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #2BB0B7; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+.bt_huang { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #FF6100; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+.bt_bai { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #fff; color: #ccc;border:1px solid #ccc; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+.bt_lv { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #8AC640; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+.bt_zi { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #594AA7; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+.bt_cheng { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #EA771C; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+.bt_fen { display: block; width: 100%; padding: 10px 0px 10px 0px;line-height:16px; border: 0px; background-color: #FF2D36; color: #fff; font-size: 14px; font-weight: bold; border-radius: 5px;text-align:center; }
+
+.a_hon { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #DA0000; }
+.a_ys { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #FF6100; }
+.a_hon { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #DA0000; }
+.a_lan { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #2BB0B7; }
+.a_huang { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #FF6100; }
+.a_lv { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #8AC640; }
+.a_zi { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #594AA7; }
+.a_cheng { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #EA771C; }
+.a_fen { float: left; padding: 0px 5px 0px 5px; color: #fff; background-color: #FF2D36; }
+
+
+.search_bt { display: block; width: 30px; height: 30px; background-size: 100% 100%;background-image:url(/images/index3.jpg);border:0px; }
+.search_tx { display: block; width: 95%; border: 0px; background-color: transparent;padding:6px; }
+
+.sltable { width: 100px; }
+.sltable td { border:1px solid #ccc;}
+.sltable .td1 { width: 20px; background-color: #EEEEEE; }
+.sltable .td2 { width: 40px; }
+.sltable td input { width: 100%; border: 0px;display:block;text-align:center; }
+
+.aaac { display: block; width: 70px; text-align: center; color: #fff;height:45px;line-height:45px; }
+.ahc1 { color: #FF3432; font-size: 14px; }
+
+.dimenu td { padding-top: 5px; text-align: center; }
+.dimenu a { display: block; text-align: center; line-height: 16px; width: 100%; }
+
+.ding { float: left; padding: 0px 5px 0px 5px; border: 1px solid #ccc; border-radius: 5px; color: #C72D33; padding-left: 20px; }
+.ding img { position: absolute;margin:4px 0px 0px -12px; }
+.cai { float: left; padding: 0px 5px 0px 5px; border: 1px solid #ccc; border-radius: 5px; color: #7E89A4; padding-left: 20px; }
+.cai img { position: absolute;margin:7px 0px 0px -12px; }
+
+.dilie { display: block; border: 1px solid #ccc; background-color: #fff; padding: 2px; border-bottom: 0px; position: relative; z-index: 99999999; height: 0px; }
+.dilie a { display: block; border-top: 1px solid #ccc;text-align:center;padding:5px 0px 5px 0px; }
+
+.vhon { background-color: #ff0000; height: 16px; line-height: 16px; text-align: center; color: #fff; position: absolute; border-radius: 100%; padding: 0px 4px 0px 4px; margin: -3px 0px 0px 40px; }

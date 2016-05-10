@@ -1,0 +1,16 @@
+﻿.b_l{float:left;display:inline;}
+.b_r{float:right;display:inline;}
+.b_l_w{float:left;display:inline;width:100%;}
+.b_r_w{float:left;display:inline;width:100%;}
+body { overflow-x:hidden;font-family:宋体;}
+
+.divkpa { padding:25px 15px 5px 15px;font-family:宋体;}
+.divkb { border-bottom:1px solid #ccc;margin-bottom:10px;}
+.divkpa b { color:#444444;}
+.divkpa td { padding-right:5px;}
+body .dis { display:none;}
+#sidebar .dis { display:none;}
+.inpt { border:1px solid #ccc;}
+textarea { overflow-x: hidden;overflow-y:auto; }
+
+.clear { clear: both; }

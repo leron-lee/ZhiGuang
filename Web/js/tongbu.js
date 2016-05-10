@@ -1,0 +1,5 @@
+﻿$(function () {
+    $.ajaxSetup({
+        async: false
+    });
+});

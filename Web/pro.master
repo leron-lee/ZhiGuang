@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="pro.master.cs" Inherits="Web.pro" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+    .onea a { float:left;display:inline;width:165px;height:50px;background-image:url(/images/fen2.jpg);padding:23px 0px 0px 35px;color:#fff;font-size:18px;}
+    .onea .a { color:#FEAE00;background-image:url(/images/fen3.jpg);}
+    .oneb a { float:left;display:inline;width:150px;padding:10px 0px 10px 0px;line-height:20px;font-size:18px;padding-left:50px;color:#D0B87A;font-size:16px;}
+    .xhx { text-decoration: underline; font-weight: bold; }
+</style>
+<script>
+    $(function () {
+        $(".onea a").click(function () {
+            $(".onea a").removeClass("a");
+            var va = $(this).attr("value");
+            $("div[id^='div_two_']").not("#div_two_" + va).hide();
+            $("#div_two_" + va).toggle();
+            if ($("#div_two_" + va).is(":hidden") == false) {
+                $(this).addClass("a");
+            }
+        });
+    });
+    var vak = 0;
+    function showpro() {
+        if (vak == 0) {
+            $("#proshow").show().animate({ width: "200px" }, 100);
+            vak = 1;
+        } else {
+            $("#proshow").animate({ width: "0px" }, 100, function () {
+                $(this).hide();
+            });
+            vak = 0;
+        }
+    }
+</script>
+<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+
+    <div class="b_l_w" style="background-color:white;">
+    <div style="padding:5px;">
+        <div class="b_l_w">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="width:45px;">
+                        <img src="/images/logo.jpg" width="35px" />
+                    </td>
+                    <td>
+                        <div style="border:1px solid #e8e8e8;background-color:white;border-radius:5px;">
+                            <asp:Panel ID="search_pl" runat="server" DefaultButton="search_bt">
+                                <div class="b_l" style="width:30px;border-right:1px solid #e8e8e8;margin-left:2px;">
+                                    <asp:Button ID="search_bt" runat="server" Text="" CssClass="search_bt" OnClick="search_bt_Click"></asp:Button>
+                                </div>
+                                <div class="b_l" style="width:135px;margin-left:5px;">
+                                    <asp:TextBox ID="search_tx" runat="server" CssClass="search_tx" placeholder="请输入商品关键字"></asp:TextBox>
+                                </div>
+                            </asp:Panel>
+                            <div class="clear"></div>
+                        </div>
+                    </td>
+                   <td style="width:60px;color:red;font-weight:bold;text-align:center;" onclick="fenxiang_show();">
+                       分享有礼
+                   </td>
+                </tr>
+            </table>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+    
+<div class="b_l_w">
+    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+</div>
+
+<div id="proshow" style="position:absolute;left:0px;top:0px;width:0px;overflow:hidden;z-index:998;display:none;">
+    <div class="b_l" style="width:200px;background-color:#202020;">
+        <div class="b_l_w" style="height:70px;overflow:hidden;background-image:url(/images/fen1.jpg);cursor:pointer;" onclick="showpro();">
+            <div class="b_l" style="font-size:20px;color:#DDC27F;margin:25px 0px 0px 35px;">
+                产品分类
+            </div>
+        </div>
+        <div class="b_l_w">
+            <asp:Repeater ID="Repeater1" runat="server" EnableViewState="false" OnItemDataBound="Repeater1_ItemDataBound">
+            <ItemTemplate>
+                <div class="b_l_w onea">
+                    <a href="javascript:;" value="<%#Eval("id") %>" class="a <%--<%#one(Eval("id")) %>--%>"><%#Eval("type_one_name") %></a>
+                </div>
+                <div id='div_two_<%#Eval("id") %>' class="b_l_w oneb <%--<%#two(Eval("id")) %>--%>">
+                    <asp:Repeater ID="Repeater111" runat="server" EnableViewState="false">
+                    <ItemTemplate>
+                        <a href="/pro.aspx?id=<%#Eval("id") %>" class="<%#three(Eval("id")) %>"><%#Eval("type_two_name") %></a>
+                    </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </ItemTemplate>
+            </asp:Repeater>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</asp:Content>
+

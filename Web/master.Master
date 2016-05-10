@@ -1,0 +1,178 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="Web.master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server"><!---->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!---->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta name="format-detection" content="telephone=no" />
+<title></title>
+
+ 
+
+
+<script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script><!---->
+<script src="/js/tongbu.js?sj=<%=sj %>"></script><!---->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    var imgUrl = '<%=logo%>';
+    var lineLink = '<%=lineLink%>';
+    var shareTitle = '<%=sy_key%>';
+    var descContent = '<%=sy_contus%>';
+
+    <%
+    string appid = getwx.AppId();
+    string timestamp = getwx.DateTimeToUnixTimestamp(DateTime.Now);
+    string nonceStr = liu.MD5(get.nyrsfm()).Substring(0, 16);
+    string url = Request.Url.AbsoluteUri.Replace("Default.aspx","");
+    string signature = getwx.signature(nonceStr, timestamp, url);
+    %>
+
+    var _appid = "<%=appid%>";
+    var _timestamp = <%=timestamp%>;
+    var _nonceStr = "<%=nonceStr%>";
+    var _url = "<%=url%>";
+    var _signature = "<%=signature%>";
+
+</script>
+<link href="/fy/fy.css" rel="stylesheet" />
+
+<%if(false){ %>
+<link href="/css/body.css" rel="stylesheet" />
+<%} %>
+<%=body_css %>
+
+<style>
+    #fenxiang { position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; z-index: 99999; background-image: url(images/50.png); text-align: right; display: none; }
+</style>
+<script>
+    var ifxs = "<%=ifxs%>";
+    $(function () {
+        $(".dilie").hide().height("auto");
+
+        $("#fenxiang").click(function () {
+            $(this).hide();
+        });
+        if (ifxs == 0) { 
+            $("#difd").hide();
+        }
+
+        setInterval(function () {
+            var dtop = $(document).scrollTop();
+            if (dtop > 200) {
+                $("#difdd").show();
+            } else {
+                $("#difdd").hide();
+            }
+        }, 10);
+    });
+    function fenxiang_show() {
+        $("#fenxiang").height($(document).height()).width($(document).width());
+        $("#fenxiang").show();
+    }
+</script>
+<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+<script src="/js/js6.js?<%=sj %>" type="text/javascript"></script><!---->
+<script src="/js/wx_fx.js?<%=sj %>" type="text/javascript"></script><!---->
+<!--[if IE]> <style>.doc{width:320px;}</style> <![endif]-->
+</head>
+<body>
+<div id="fenxiang">
+    <img src="/images/guide.png" width="40%" />
+</div>
+<div id="difdd" style="position:fixed;bottom:<%=bottom%>;right:5px;display:none;z-index:999;">
+    <a href="#"><img src="/images/top1.png" width="40px" /></a>
+</div>
+<form id="form1" runat="server" onkeypress="if(event.keyCode==13){return false;}">
+    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+    
+        <div class="b_l_w">
+            <div class="doc">
+                <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="clear" style="height:50px;"></div>
+        <script>
+            $(function () {
+                $("#div_neirong").click(function () {
+                    $(".dilie").slideUp();
+                });
+            });
+            function dimenu(v) {
+                $(".dixiamenu td").not($(".dixiamenu td").eq(v)).find(".dilie").slideUp();
+                $(".dixiamenu td").eq(v).find(".dilie").slideToggle();
+            }
+        </script>
+        <div class="fixed" style="position:fixed;left:0px;bottom:0px;width:100%;">
+            <div class="b_l_w" style="height:49px;border-top:1px solid #ccc;background-color:#eeeeee;">
+            <div class="doc">
+                <table class="dimenu" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="width:25%;">
+                            <a href="/"><img src="/images/menu/home.png" width="20px" /><br />首页</a>
+                        </td>
+                        <td style="width:25%;">
+                            <a href="/pro.aspx" ><img src="/images/menu/products.png" width="20px" /><br />商品</a>
+                        </td>
+                       
+                        <td style="width:25%;">
+                            <a href="/cart"><img src="/images/menu/car.png" width="20px" /><br />购物车</a>
+                        </td>
+                        <td style="width:25%;">
+                            <a href="/user" ><img src="/images/menu/user.png" width="20px" /><br />我</a>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+        <div style="position:fixed;bottom:50px;left:0px;width:100%;z-index:9999;">
+            <div class='doc'>
+                <table class="dixiamenu" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="width:20%;" valign="bottom">
+                            
+                        </td>
+                        <td style="width:20%;" valign="bottom">
+                            <div class="dilie">
+                                <a href="/pro.aspx?id=22" style="border-top:0px;"><%=get.meb_two_name(22) %></a>
+                                <a href="/pro.aspx?id=21"><%=get.meb_two_name(21) %></a>
+                                <a href="/pro.aspx?id=19"><%=get.meb_two_name(19) %></a>
+                                <a href="/pro.aspx?id=20"><%=get.meb_two_name(20) %></a>
+                                <a href="/pro.aspx">全部商品</a>
+                            </div>
+                        </td>
+                        <td style="width:20%;" valign="bottom">
+                            
+                        </td>
+                        <td style="width:20%;" valign="bottom">
+                            <%--<div class="dilie">
+                                <a href="/html.aspx?id=26" style="border-top:0px;">我要赚钱</a>
+                                <a href="/user/wdcc.aspx">我的财产</a>
+                                <a href="/user/up_center.aspx">我的信息</a>
+                                <a href="/user/shoporder.aspx">我的订单</a>
+                                <a href="/user">我的中心</a>
+                            </div>--%>
+                        </td>
+                        <td style="width:20%;" valign="bottom">
+                            <div class="dilie">
+                                <a href="/news.aspx?id=17" style="border-top:0px;">公司动态</a>
+                                <a href="/html.aspx?id=14">品牌文化</a>
+                                <a href="/shang.aspx">实体专柜</a>
+                                <a href="/html.aspx?id=24">客服中心</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+</form>
+<script src="/js/fs.js"></script>
+<div style="position:absolute;left:0px;top:0px;width:0px;height:0px;overflow:hidden;">
+    <!-- #include file="cs.aspx" --><img src="<%= new CS(1253956843).TrackPageView()%>" width="0" height="0"/>
+   
+</div>
+<center><%=get.js(1) %></center></body>
+</html>

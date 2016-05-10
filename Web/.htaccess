@@ -1,0 +1,37 @@
+RewriteEngine On
+
+
+RewriteRule ^/index.html$ /default.aspx
+
+
+RewriteRule ^/about.html$ /page.aspx?sid=2
+RewriteRule ^/qyry.html$ /page.aspx?tid=3
+RewriteRule ^/about_(\d+)\.html$ /page.aspx?sid=$1
+RewriteRule ^/qyry_pagex_(\d+)\.html$ /page.aspx?tid=3&pagex=$1
+RewriteRule ^/qyry/qyry_(\d+)\.html$ /page.aspx?id=$1
+RewriteRule ^/qyry_(\d+)_pagex_(\d+)\.html$ /page.aspx?tid=$1&pagex=$2
+RewriteRule ^/news.html$ /page.aspx?tid=6
+RewriteRule ^/news_(\d+)\.html$ /page.aspx?tid=$1
+RewriteRule ^/news_(\d+)_pagex_(\d+)\.html$ /page.aspx?tid=$1&pagex=$2
+RewriteRule ^/news/news_(\d+)\.html$ /page.aspx?id=$1
+RewriteRule ^/news_(\d+)\.html$ /page.aspx?tid=6&pagex=$1
+RewriteRule ^/products.html$ /products.aspx
+RewriteRule ^/products_pagex_(\d+)\.html$ /products.aspx?pagex=$1
+RewriteRule ^/products_(\d+)_pagex_(\d+)\.html$ /products.aspx?tid=$1&pagex=$2
+RewriteRule ^/products/products_(\d+)\.html$ /product.aspx?id=$1
+RewriteRule ^/products_(\d+)\.html$ /products.aspx?tid=$1
+RewriteRule ^/cases.html$ /page.aspx?tid=10
+RewriteRule ^/cases_(\d+)\.html$ /page.aspx?tid=$1
+RewriteRule ^/cases_(\d+)_pagex_(\d+)\.html$ /page.aspx?tid=$1&pagex=$2
+RewriteRule ^/cases/cases_(\d+)\.html$ /page.aspx?id=$1
+RewriteRule ^/cases_(\d+)\.html$ /page.aspx?tid=10&pagex=$1
+RewriteRule ^/countact.html$ /page.aspx?sid=12
+RewriteRule ^/countact_(\d+)\.html$ /page.aspx?sid=$1
+
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*)$ index.aspx/$1 [L]
+# 处理 css 子目录和 images 子目录
+RewriteRule ^(.*)/([a-z]+)/([a-z]+)/page/([0-9]+)$ index.aspx?controller=$1&action=$2&page=$3 [L]

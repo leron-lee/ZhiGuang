@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/master.Master" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="Web.user.user" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <div class="b_l_w aswa" style="background-color: #ff2310;" >
+        <div style="padding: 10px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    
+                    <td style="color: #ffffff; text-align: center;">
+                        <span style="font-size: 16px;">会员中心</span>
+                        <span style="font-size: 10px;">Member Center</span>
+                    </td>
+                    
+                </tr>
+            </table>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="b_l_w">
+        <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+    </div>
+</asp:Content>
+
