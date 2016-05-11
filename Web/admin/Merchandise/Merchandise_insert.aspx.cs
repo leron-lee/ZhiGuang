@@ -10,8 +10,22 @@ namespace Web.admin.Merchandise
 {
     public partial class Merchandise_insert : System.Web.UI.Page
     {
+        /*标志登录账户是否为管理员*/
+        bool IsAdmin = true;
+        string um = "";
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            if (base.Request.Cookies["adminusername"] != null)
+            {
+                um = base.Server.UrlDecode(base.Request.Cookies["adminusername"].Value);
+                IsAdmin = true;
+            }
+            else if (base.Request.Cookies["fx"] != null)
+            {
+                um = base.Server.UrlDecode(base.Request.Cookies["fx"].Value);
+                IsAdmin = false;
+                this.DropDownList1.Visible = false;
+            }
             if (!base.IsPostBack)
             {
                 if (base.Request.QueryString["px"] != null)
@@ -21,8 +35,8 @@ namespace Web.admin.Merchandise
                     {
                         base.Response.Redirect("Merchandise_insert.aspx?pid=" + ob);
                     }
-                }
-                string um = base.Server.UrlDecode(base.Request.Cookies["adminusername"].Value);
+                }                
+                
                 System.Collections.Generic.List<type_oneModel> li = new SqlHelper().ExecuteList<type_oneModel>("select * from type_one order by px");
                 DataTable dtt = new SqlHelper().ExecuteDataTable("select * from type_two where type not in (1,4,5)  order by px");
                 foreach (type_oneModel i in li)
@@ -285,6 +299,12 @@ namespace Web.admin.Merchandise
                 sqlstring = "0";
             }
             string px = this.times.Text;
+            string Belong = "admin";
+            if (!IsAdmin)
+            {
+                r = "7";
+                Belong = um;
+            }
             if (r == "0")
             {
                 base.Response.Write("<script>alert('请选择所属类型');location.href='" + base.Request.RawUrl + "';</script>");
@@ -300,71 +320,72 @@ namespace Web.admin.Merchandise
                     op = System.Convert.ToInt32(strtit) + 1;
                 }
                 SqlParameter[] sqlstr = new SqlParameter[]
-				{
-					new SqlParameter("@name", t),
-					new SqlParameter("@type_two_id", r),
-					new SqlParameter("@iftj", r2),
-					new SqlParameter("@tj", tj),
-					new SqlParameter("@sy_tj", sy_tj),
-					new SqlParameter("@x_img", t2),
-					new SqlParameter("@d_img", t2_d),
-					new SqlParameter("@guige", t3),
-					new SqlParameter("@jrsx", llint),
-					new SqlParameter("@lirun", fh_sheng),
-					new SqlParameter("@ifsj", fh_shi),
-					new SqlParameter("@fh_sheng", fh_xian),
-					new SqlParameter("@fh_shi", fh_dv),
-					new SqlParameter("@fh_xian", fh_one),
-					new SqlParameter("@fh_dv", fh_two),
-					new SqlParameter("@fh_one", fh_three),
-					new SqlParameter("@fh_two", price_sheng),
-					new SqlParameter("@fh_three", price_shi),
-					new SqlParameter("@price_sheng", price_xian),
-					new SqlParameter("@price_shi", price_dv),
-					new SqlParameter("@price_xian", times),
-					new SqlParameter("@price_dv", sqlstring),
-					new SqlParameter("@title", t4),
-					new SqlParameter("@keyname", t5),
-					new SqlParameter("@counts", t6),
-					new SqlParameter("@nrtext", t7),
-					new SqlParameter("@s1", s2),
-					new SqlParameter("@s2", s3),
-					new SqlParameter("@s3", s4),
-					new SqlParameter("@s4", s5),
-					new SqlParameter("@s5", s6),
-					new SqlParameter("@s6", s7),
-					new SqlParameter("@s7", s8),
-					new SqlParameter("@s8", s9),
-					new SqlParameter("@s9", s10),
-					new SqlParameter("@s10", s11),
-					new SqlParameter("@s11", s12),
-					new SqlParameter("@s12", s13),
-					new SqlParameter("@s13", s14),
-					new SqlParameter("@s14", s15),
-					new SqlParameter("@s15", s16),
-					new SqlParameter("@s16", s17),
-					new SqlParameter("@s17", s18),
-					new SqlParameter("@s18", s19),
-					new SqlParameter("@s19", s20),
-					new SqlParameter("@s20", s21),
-					new SqlParameter("@s21", s22),
-					new SqlParameter("@s22", s23),
-					new SqlParameter("@s23", s24),
-					new SqlParameter("@s24", s25),
-					new SqlParameter("@s25", s26),
-					new SqlParameter("@s26", s27),
-					new SqlParameter("@s27", s28),
-					new SqlParameter("@s28", s29),
-					new SqlParameter("@s29", s30),
-					new SqlParameter("@s30", ifsj),
-					new SqlParameter("@llint", s),
-					new SqlParameter("@times", px),
-					new SqlParameter("@px", op.ToString())
-				};
-                string a = "insert into Merchandise (name,type_two_id,iftj,tj,sy_tj,x_img,d_img,guige,jrsx,lirun,ifsj,fh_sheng,fh_shi,fh_xian,fh_dv,fh_one,fh_two,fh_three,price_sheng,price_shi,price_xian,price_dv,title,keyname,counts,nrtext,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29,s30,llint,times,px) values(@name,@type_two_id,@iftj,@tj,@sy_tj,@x_img,@d_img,@guige,@jrsx,@lirun,@ifsj,@fh_sheng,@fh_shi,@fh_xian,@fh_dv,@fh_one,@fh_two,@fh_three,@price_sheng,@price_shi,@price_xian,@price_dv,@title,@keyname,@counts,@nrtext,@s1,@s2,@s3,@s4,@s5,@s6,@s7,@s8,@s9,@s10,@s11,@s12,@s13,@s14,@s15,@s16,@s17,@s18,@s19,@s20,@s21,@s22,@s23,@s24,@s25,@s26,@s27,@s28,@s29,@s30,@llint,@times,@px)";
+                {
+                    new SqlParameter("@name", t),
+                    new SqlParameter("@type_two_id", r),
+                    new SqlParameter("@iftj", r2),
+                    new SqlParameter("@tj", tj),
+                    new SqlParameter("@sy_tj", sy_tj),
+                    new SqlParameter("@x_img", t2),
+                    new SqlParameter("@d_img", t2_d),
+                    new SqlParameter("@guige", t3),
+                    new SqlParameter("@jrsx", llint),
+                    new SqlParameter("@lirun", fh_sheng),
+                    new SqlParameter("@ifsj", fh_shi),
+                    new SqlParameter("@fh_sheng", fh_xian),
+                    new SqlParameter("@fh_shi", fh_dv),
+                    new SqlParameter("@fh_xian", fh_one),
+                    new SqlParameter("@fh_dv", fh_two),
+                    new SqlParameter("@fh_one", fh_three),
+                    new SqlParameter("@fh_two", price_sheng),
+                    new SqlParameter("@fh_three", price_shi),
+                    new SqlParameter("@price_sheng", price_xian),
+                    new SqlParameter("@price_shi", price_dv),
+                    new SqlParameter("@price_xian", times),
+                    new SqlParameter("@price_dv", sqlstring),
+                    new SqlParameter("@title", t4),
+                    new SqlParameter("@keyname", t5),
+                    new SqlParameter("@counts", t6),
+                    new SqlParameter("@nrtext", t7),
+                    new SqlParameter("@s1", s2),
+                    new SqlParameter("@s2", s3),
+                    new SqlParameter("@s3", s4),
+                    new SqlParameter("@s4", s5),
+                    new SqlParameter("@s5", s6),
+                    new SqlParameter("@s6", s7),
+                    new SqlParameter("@s7", s8),
+                    new SqlParameter("@s8", s9),
+                    new SqlParameter("@s9", s10),
+                    new SqlParameter("@s10", s11),
+                    new SqlParameter("@s11", s12),
+                    new SqlParameter("@s12", s13),
+                    new SqlParameter("@s13", s14),
+                    new SqlParameter("@s14", s15),
+                    new SqlParameter("@s15", s16),
+                    new SqlParameter("@s16", s17),
+                    new SqlParameter("@s17", s18),
+                    new SqlParameter("@s18", s19),
+                    new SqlParameter("@s19", s20),
+                    new SqlParameter("@s20", s21),
+                    new SqlParameter("@s21", s22),
+                    new SqlParameter("@s22", s23),
+                    new SqlParameter("@s23", s24),
+                    new SqlParameter("@s24", s25),
+                    new SqlParameter("@s25", s26),
+                    new SqlParameter("@s26", s27),
+                    new SqlParameter("@s27", s28),
+                    new SqlParameter("@s28", s29),
+                    new SqlParameter("@s29", s30),
+                    new SqlParameter("@s30", ifsj),
+                    new SqlParameter("@llint", s),
+                    new SqlParameter("@times", px),
+                    new SqlParameter("@px", op.ToString()),
+                    new SqlParameter("@belong",Belong)
+                };
+                string a = "insert into Merchandise (name,type_two_id,iftj,tj,sy_tj,x_img,d_img,guige,jrsx,lirun,ifsj,fh_sheng,fh_shi,fh_xian,fh_dv,fh_one,fh_two,fh_three,price_sheng,price_shi,price_xian,price_dv,title,keyname,counts,nrtext,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29,s30,llint,times,px,belong) values(@name,@type_two_id,@iftj,@tj,@sy_tj,@x_img,@d_img,@guige,@jrsx,@lirun,@ifsj,@fh_sheng,@fh_shi,@fh_xian,@fh_dv,@fh_one,@fh_two,@fh_three,@price_sheng,@price_shi,@price_xian,@price_dv,@title,@keyname,@counts,@nrtext,@s1,@s2,@s3,@s4,@s5,@s6,@s7,@s8,@s9,@s10,@s11,@s12,@s13,@s14,@s15,@s16,@s17,@s18,@s19,@s20,@s21,@s22,@s23,@s24,@s25,@s26,@s27,@s28,@s29,@s30,@llint,@times,@px,@belong)";
                 if (base.Request.QueryString["id"] != null)
                 {
-                    a = "update Merchandise set name=@name,type_two_id=@type_two_id,iftj=@iftj,tj=@tj,sy_tj=@sy_tj,x_img=@x_img,d_img=@d_img,guige=@guige,jrsx=@jrsx,lirun=@lirun,ifsj=@ifsj,fh_sheng=@fh_sheng,fh_shi=@fh_shi,fh_xian=@fh_xian,fh_dv=@fh_dv,fh_one=@fh_one,fh_two=@fh_two,fh_three=@fh_three,price_sheng=@price_sheng,price_shi=@price_shi,price_xian=@price_xian,price_dv=@price_dv,title=@title,keyname=@keyname,counts=@counts,nrtext=@nrtext,s1=@s1,s2=@s2,s3=@s3,s4=@s4,s5=@s5,s6=@s6,s7=@s7,s8=@s8,s9=@s9,s10=@s10,s11=@s11,s12=@s12,s13=@s13,s14=@s14,s15=@s15,s16=@s16,s17=@s17,s18=@s18,s19=@s19,s20=@s20,s21=@s21,s22=@s22,s23=@s23,s24=@s24,s25=@s25,s26=@s26,s27=@s27,s28=@s28,s29=@s29,s30=@s30,llint=@llint,times=@times where id=" + System.Convert.ToInt32(base.Request.QueryString["id"]).ToString();
+                    a = "update Merchandise set name=@name,type_two_id=@type_two_id,iftj=@iftj,tj=@tj,sy_tj=@sy_tj,x_img=@x_img,d_img=@d_img,guige=@guige,jrsx=@jrsx,lirun=@lirun,ifsj=@ifsj,fh_sheng=@fh_sheng,fh_shi=@fh_shi,fh_xian=@fh_xian,fh_dv=@fh_dv,fh_one=@fh_one,fh_two=@fh_two,fh_three=@fh_three,price_sheng=@price_sheng,price_shi=@price_shi,price_xian=@price_xian,price_dv=@price_dv,title=@title,keyname=@keyname,counts=@counts,nrtext=@nrtext,s1=@s1,s2=@s2,s3=@s3,s4=@s4,s5=@s5,s6=@s6,s7=@s7,s8=@s8,s9=@s9,s10=@s10,s11=@s11,s12=@s12,s13=@s13,s14=@s14,s15=@s15,s16=@s16,s17=@s17,s18=@s18,s19=@s19,s20=@s20,s21=@s21,s22=@s22,s23=@s23,s24=@s24,s25=@s25,s26=@s26,s27=@s27,s28=@s28,s29=@s29,s30=@s30,llint=@llint,times=@times,belong=@belong where id=" + System.Convert.ToInt32(base.Request.QueryString["id"]).ToString();
                 }
                 int mid = new SqlHelper().ExecuteNonQuery(a, sqlstr);
                 if (mid > 0)

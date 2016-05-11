@@ -11,7 +11,7 @@ namespace Web.admin
     {
         protected void Page_Init(object sender, System.EventArgs e)
         {
-            if (base.Request.Cookies["adminusername"] == null)
+            if (base.Request.Cookies["adminusername"] == null&&base.Request.Cookies["fx"]==null)
             {
                 base.Response.Write("<script>alert('请先登录...');self.window.parent.location='../Default.aspx';</script>");
                 base.Response.End();

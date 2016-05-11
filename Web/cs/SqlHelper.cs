@@ -73,7 +73,8 @@ public class SqlHelper
             {
                 throw exp;
             }
-            cmd.Dispose();
+            cmd.Parameters.Clear();
+            cmd.Dispose();            
             this.cnn.Dispose();
             this.cnn.Close();
             result = retval;
@@ -100,6 +101,7 @@ public class SqlHelper
             }
             this.cnn.Open();
             int retval = cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
             cmd.Dispose();
             this.cnn.Dispose();
             this.cnn.Close();
@@ -123,6 +125,7 @@ public class SqlHelper
             }
             this.cnn.Open();
             object retval = cmd.ExecuteScalar();
+            cmd.Parameters.Clear();
             cmd.Dispose();
             this.cnn.Dispose();
             this.cnn.Close();
@@ -150,6 +153,7 @@ public class SqlHelper
             }
             this.cnn.Open();
             object retval = cmd.ExecuteScalar();
+            cmd.Parameters.Clear();
             cmd.Dispose();
             this.cnn.Dispose();
             this.cnn.Close();
@@ -175,6 +179,7 @@ public class SqlHelper
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
+            cmd.Parameters.Clear();
             cmd.Dispose();
             da.Dispose();
             this.cnn.Dispose();
@@ -201,6 +206,7 @@ public class SqlHelper
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds, uc);
+            cmd.Parameters.Clear();
             cmd.Dispose();
             da.Dispose();
             this.cnn.Dispose();
@@ -231,6 +237,7 @@ public class SqlHelper
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
+            cmd.Parameters.Clear();
             cmd.Dispose();
             da.Dispose();
             this.cnn.Dispose();
@@ -265,6 +272,7 @@ public class SqlHelper
                         T obj = SqlHelper.ExecuteDataReader<T>(reader);
                         list.Add(obj);
                     }
+                    cmd.Parameters.Clear();
                     cmd.Dispose();
                     reader.Dispose();
                     reader.Close();
@@ -306,6 +314,7 @@ public class SqlHelper
                         T obj = SqlHelper.ExecuteDataReader<T>(reader);
                         list.Add(obj);
                     }
+                    cmd.Parameters.Clear();
                     cmd.Dispose();
                     reader.Dispose();
                     reader.Close();

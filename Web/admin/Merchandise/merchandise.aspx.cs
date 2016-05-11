@@ -9,9 +9,22 @@ namespace Web.admin.Merchandise
 {
     public partial class merchandise : System.Web.UI.Page
     {
-    
+        /*标志登录账户是否为管理员*/
+        bool IsAdmin = true;
+        string um = "";
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            if (base.Request.Cookies["adminusername"] != null)
+            {
+                um = base.Server.UrlDecode(base.Request.Cookies["adminusername"].Value);
+            }
+            else if (base.Request.Cookies["fx"] != null)
+            {
+                um = base.Server.UrlDecode(base.Request.Cookies["fx"].Value);
+                //this.DropDownList1.Enabled = false;
+                this.DropDownList1.Visible = false;
+                IsAdmin = false;
+            }
             if (!base.IsPostBack)
             {
                 string sqlwgcb = "";
@@ -21,7 +34,6 @@ namespace Web.admin.Merchandise
                     sqlwgcb = " where id = " + uid;
                     this.DropDownList1.Items.Clear();
                 }
-                string um = base.Server.UrlDecode(base.Request.Cookies["adminusername"].Value);
                 System.Collections.Generic.List<type_oneModel> li = new SqlHelper().ExecuteList<type_oneModel>("select * from type_one" + sqlwgcb + " order by px");
                 DataTable dtt = new SqlHelper().ExecuteDataTable("select * from type_two where type not in (1,4,5)  order by px");
                 foreach (type_oneModel i in li)
@@ -71,6 +83,10 @@ namespace Web.admin.Merchandise
                     sqlwere = " where type_two_id=" + uid.ToString() + " ";
                     sqlandwrer = " and type_two_id=" + uid.ToString() + " ";
                     username = "typeid=" + uid.ToString();
+                    if (!IsAdmin)
+                    {
+                        sqlwere = " where type_two_id=" + uid.ToString() + " " + "and belong= '" + um + "' ";
+                    }
                 }
                 if (base.Request.QueryString["type_one_id"] != null)
                 {
@@ -86,41 +102,45 @@ namespace Web.admin.Merchandise
                     sqlandwrer = " and name like '%" + sm + "%' ";
                     username = "sm=" + base.Server.UrlEncode(sm);
                     this.TextBox1.Text = sm;
+                    if (!IsAdmin)
+                    {
+                        sqlwere = " where name like '%" + sm + "%' " + " and type_two_id= 7 " + " " + "and belong= '" + um + "' ";
+                    }
                 }
                 string sqlstring;
                 if ((p - 1) * x == 0)
                 {
                     sqlstring = string.Concat(new object[]
-					{
-						"select top ",
-						x,
-						" * from Merchandise ",
-						sqlwere,
-						" order by px desc"
-					});
+                    {
+                        "select top ",
+                        x,
+                        " * from Merchandise ",
+                        sqlwere,
+                        " order by px desc"
+                    });
                 }
                 else
                 {
                     string zid_sql_one = string.Concat(new object[]
-					{
-						"select top ",
-						(p - 1) * x,
-						" px from merchandise ",
-						sqlwere,
-						" order by px desc"
-					});
+                    {
+                        "select top ",
+                        (p - 1) * x,
+                        " px from merchandise ",
+                        sqlwere,
+                        " order by px desc"
+                    });
                     string zid_sqltwo = "select top 1 px from merchandise where px in (" + zid_sql_one + ") order by px";
                     string zid = new SqlHelper().ExecuteScalar(zid_sqltwo);
                     sqlstring = string.Concat(new object[]
-					{
-						"select top ",
-						x,
-						" * from merchandise where px <(",
-						zid,
-						") ",
-						sqlandwrer,
-						" order by px desc"
-					});
+                    {
+                        "select top ",
+                        x,
+                        " * from merchandise where px <(",
+                        zid,
+                        ") ",
+                        sqlandwrer,
+                        " order by px desc"
+                    });
                 }
                 using (DataTable r2 = new SqlHelper().ExecuteDataTable(sqlstring))
                 {
@@ -150,13 +170,13 @@ namespace Web.admin.Merchandise
             if (type == "3")
             {
                 fig = string.Concat(new object[]
-				{
-					"<a href='../yk/menu.aspx?mid=",
-					id,
-					"&url=",
-					base.Server.UrlEncode(base.Request.RawUrl),
-					"' class='lan'>颜色、尺寸</a>"
-				});
+                {
+                    "<a href='../yk/menu.aspx?mid=",
+                    id,
+                    "&url=",
+                    base.Server.UrlEncode(base.Request.RawUrl),
+                    "' class='lan'>颜色、尺寸</a>"
+                });
             }
             return fig;
         }
@@ -395,9 +415,9 @@ namespace Web.admin.Merchandise
             if (base.Request.Form["Item"] != null)
             {
                 string[] array = base.Request.Form["Item"].Split(new char[]
-				{
-					','
-				});
+                {
+                    ','
+                });
                 for (int i = 0; i < array.Length; i++)
                 {
                     string item = array[i];
@@ -428,9 +448,9 @@ namespace Web.admin.Merchandise
             if (base.Request.Form["Item"] != null)
             {
                 string[] array = base.Request.Form["Item"].Split(new char[]
-				{
-					','
-				});
+                {
+                    ','
+                });
                 for (int i = 0; i < array.Length; i++)
                 {
                     string item = array[i];

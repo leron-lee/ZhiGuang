@@ -1,6 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/admin_master.Master" AutoEventWireup="true" CodeBehind="merchandise.aspx.cs" Inherits="Web.admin.Merchandise.merchandise" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/admin/admin_master.Master" AutoEventWireup="true" CodeBehind="merchandise.aspx.cs" Inherits="Web.admin.Merchandise.merchandise" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!--商品编辑页面-->
 <script type="text/javascript">
+    function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=")
+            if (c_start != -1) {
+                c_start = c_start + c_name.length + 1
+                c_end = document.cookie.indexOf(";", c_start)
+                if (c_end == -1) c_end = document.cookie.length
+                return unescape(document.cookie.substring(c_start, c_end))
+            }
+        }
+        return "";
+    }
     function cball(cb) {
         var ck = document.getElementsByTagName("input");
         for (var i = 0; i < ck.length; i++) {
@@ -12,12 +26,18 @@
     function show() {
         var hf = "Merchandise_insert.aspx?typeid=";
         var vl = $("#<%=DropDownList1.ClientID%>").val();
+        if (getCookie("fx") != "") {
+            location.href = hf + "7";
+        }
+        else {
             if (vl == "0") {
                 alert("请选择栏目");
             } else {
                 location.href = hf + vl;
             }
         }
+    }
+
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">

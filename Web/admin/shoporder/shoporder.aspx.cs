@@ -8,7 +8,9 @@ namespace Web.admin.shoporder
     public partial class shoporder : System.Web.UI.Page
     {
         private string fystr;
-    
+        /*标志登录账户是否为管理员*/
+        bool IsAdmin = true;
+        string um = "";
         public string Fystr
         {
             get
@@ -22,6 +24,16 @@ namespace Web.admin.shoporder
         }
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            if (base.Request.Cookies["adminusername"] != null)
+            {
+                um = base.Server.UrlDecode(base.Request.Cookies["adminusername"].Value);
+                IsAdmin = true;
+            }
+            else if (base.Request.Cookies["fx"] != null)
+            {
+                um = base.Server.UrlDecode(base.Request.Cookies["fx"].Value);
+                IsAdmin = false;
+            }
             if (!base.IsPostBack)
             {
                 this.Page.Title = "我的订单 - " + get.gsstr();
@@ -103,44 +115,91 @@ namespace Web.admin.shoporder
                 string sqlstring = string.Empty;
                 if ((p - 1) * x == 0)
                 {
-                    sqlstring = string.Concat(new object[]
-					{
-						"select top ",
-						x,
-						" * from shoporder where id <> 0 ",
-						sqlw,
-						" order by id desc"
-					});
+                    if (!IsAdmin)
+                    {
+                        sqlstring = string.Concat(new object[]
+                        {
+                            "select top ",
+                            x,
+                            " a.ordernumber, a.times,a.username,a.price,a.id,a.zt from shoporder a  inner join shoporderlist b  on a.id=b.OrderId  inner join Merchandise c  on b.mname=c.name where c.belong ='" + um + "' and a.id <>0 ",
+                            sqlw,
+                            " order by a.id desc"
+                        });
+                    }
+                    else
+                    {
+                        sqlstring = string.Concat(new object[]
+                        {
+                            "select top ",
+                            x,
+                            " * from shoporder where id <> 0 ",
+                            sqlw,
+                            " order by id desc"
+                        });
+                    }
                 }
                 else
                 {
                     string zid_sql_one = string.Concat(new object[]
-					{
-						"select top ",
-						(p - 1) * x,
-						" id from shoporder where id <> 0 ",
-						sqlw,
-						" order by id desc"
-					});
+                    {
+                        "select top ",
+                        (p - 1) * x,
+                        " id from shoporder where id <> 0 ",
+                        sqlw,
+                        " order by id desc"
+                    });
                     string zid_sqltwo = "select top 1 id from shoporder where id in (" + zid_sql_one + ") order by id";
                     string zid = new SqlHelper().ExecuteScalar(zid_sqltwo);
+                    if (!IsAdmin)
+                    {
+                        sqlstring = string.Concat(new object[]
+                        {
+                            "select top ",
+                            x,
+                            " a.ordernumber, a.times,a.username,a.price,a.id,a.zt from shoporder a  inner join shoporderlist b  on a.id=b.OrderId  inner join Merchandise c  on b.mname=c.name where c.belong ='" + um + "' and a.id <(",
+                            zid,
+                            ") ",
+                            sqlw,
+                            " order by a.id desc"
+                        });
+                    }
+                    else
+                    {
+                        sqlstring = string.Concat(new object[]
+                        {
+                            "select top ",
+                            x,
+                            " * from shoporder where id <(",
+                            zid,
+                            ") ",
+                            sqlw,
+                            " order by id desc"
+                        });
+                    }
                     sqlstring = string.Concat(new object[]
-					{
-						"select top ",
-						x,
-						" * from shoporder where id <(",
-						zid,
-						") ",
-						sqlw,
-						" order by id desc"
-					});
+                    {
+                        "select top ",
+                        x,
+                        " * from shoporder where id <(",
+                        zid,
+                        ") ",
+                        sqlw,
+                        " order by id desc"
+                    });
                 }
                 using (DataTable d = new SqlHelper().ExecuteDataTable(sqlstring))
                 {
                     this.Repeater1.DataSource = d;
                     this.Repeater1.DataBind();
                 }
-                this.fystr = en_page.fystr_one(x, "shoporder where id <> 0 " + sqlw, username, p, "pagex", "id", 1);
+                if (!IsAdmin)
+                {
+                    this.fystr = en_page.fystr_one(x, "shoporder a  inner join shoporderlist b  on a.id=b.OrderId  inner join Merchandise c  on b.mname=c.name where c.belong ='" + um + "' and a.id <> 0 " + sqlw, username, p, "pagex", "a.id", 1);
+                }
+                else
+                {
+                    this.fystr = en_page.fystr_one(x, "shoporder where id <> 0 " + sqlw, username, p, "pagex", "id", 1);
+                }
             }
         }
         public string ckwl()
@@ -150,13 +209,13 @@ namespace Web.admin.shoporder
             if (zt > 2)
             {
                 fig = string.Concat(new object[]
-				{
-					"<a href=\"http://www.kuaidi100.com/chaxun?com=",
-					base.Eval("fname_id"),
-					"&nu=",
-					base.Eval("fdan"),
-					"\" target=_blank' style='color:blue;'>查看物流</a>"
-				});
+                {
+                    "<a href=\"http://www.kuaidi100.com/chaxun?com=",
+                    base.Eval("fname_id"),
+                    "&nu=",
+                    base.Eval("fdan"),
+                    "\" target=_blank' style='color:blue;'>查看物流</a>"
+                });
             }
             return fig;
         }
@@ -187,7 +246,16 @@ namespace Web.admin.shoporder
             {
                 Repeater Repeater111 = (Repeater)e.Item.FindControl("Repeater111");
                 object id = DataBinder.Eval(e.Item.DataItem, "id");
-                using (DataTable dt = new SqlHelper().ExecuteDataTable("select * from shoporderlist where orderid = " + id + " order by id"))
+                string SqlList = "";
+                if (!IsAdmin)
+                {
+                    SqlList = "select s.id,s.OrderId,s.mid,s.sum,s.price,s.mname,s.mx_img,s.ys,s.cc from  shoporderlist  s inner join Merchandise m on s.mname=m.name where m.belong ='" + um + "' and s.orderid = " + id + " order by s.id";
+                }
+                else
+                {
+                    SqlList = "select * from shoporderlist where orderid = " + id + " order by id";
+                }
+                using (DataTable dt = new SqlHelper().ExecuteDataTable(SqlList))
                 {
                     Repeater111.DataSource = dt;
                     Repeater111.DataBind();
@@ -202,18 +270,18 @@ namespace Web.admin.shoporder
             string name = this.name.Text;
             string fdan = this.fdan.Text;
             base.Response.Redirect(string.Concat(new string[]
-			{
-				"shoporder.aspx?ordernumber=",
-				ordernumber,
-				"&zt=",
-				zt,
-				"&_username=",
-				_username,
-				"&name=",
-				name,
-				"&fdan=",
-				fdan
-			}));
+            {
+                "shoporder.aspx?ordernumber=",
+                ordernumber,
+                "&zt=",
+                zt,
+                "&_username=",
+                _username,
+                "&name=",
+                name,
+                "&fdan=",
+                fdan
+            }));
         }
     }
 }
