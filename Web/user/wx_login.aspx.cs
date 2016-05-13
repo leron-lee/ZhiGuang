@@ -87,9 +87,6 @@ namespace Web.user
                         string text9 = new SqlHelper().ExecuteScalar("select username from username where openid = '" + this.openid + "'");
                         if (text9 != "")
                         {
-
-
-
                             HttpCookie httpCookie = new HttpCookie("username");
                             httpCookie.Expires = System.DateTime.Now.AddYears(1);
                             httpCookie.Value = base.Server.UrlEncode(text9);

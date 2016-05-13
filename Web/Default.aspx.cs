@@ -85,17 +85,18 @@ namespace Web
                     }
                 }
                 else
-                {                
-                    string text = getwx.AppId();
-                    string text2 = getwx.AppSecret();
-                    base.Response.Redirect(string.Concat(new string[]
-					{
-						"https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
-						text,
-						"&redirect_uri=",
-						base.Server.UrlEncode("http://" + base.Request.Url.Authority + "/user/wx_login.aspx"),
-						"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
-					}));
+                {
+                    base.Response.Redirect("/user/login.aspx");             
+     //               string text = getwx.AppId();
+     //               string text2 = getwx.AppSecret();
+     //               base.Response.Redirect(string.Concat(new string[]
+					//{
+					//	"https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
+					//	text,
+					//	"&redirect_uri=",
+					//	base.Server.UrlEncode("http://" + base.Request.Url.Authority + "/user/wx_login.aspx"),
+					//	"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
+					//}));
 
 
                     this.Panel1.Visible = true;

@@ -6,7 +6,6 @@ namespace Web.user
 {
     public partial class login : System.Web.UI.Page
     {
- 
         protected void Page_Load(object sender, System.EventArgs e)
         {
             if (!base.IsPostBack)
@@ -17,16 +16,21 @@ namespace Web.user
                 }
                 else
                 {
-                    string text = getwx.AppId();
-                    string text2 = getwx.AppSecret();
-                    base.Response.Redirect(string.Concat(new string[]
-					{
-						"https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
-						text,
-						"&redirect_uri=",
-						base.Server.UrlEncode("http://" + base.Request.Url.Authority + "/user/wx_login.aspx"),
-						"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
-					}));
+                    /*验证此次访问是否在微信端进行，若是则跳转到微信登录*/
+                    string userAgent = Request.UserAgent;
+                    if (userAgent.ToLower().Contains("micromessenger"))
+                    {
+                        string text = getwx.AppId();
+                        string text2 = getwx.AppSecret();
+                        base.Response.Redirect(string.Concat(new string[]
+                        {
+                        "https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
+                        text,
+                        "&redirect_uri=",
+                        base.Server.UrlEncode("http://" + base.Request.Url.Authority + "/user/wx_login.aspx"),
+                        "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
+                        }));
+                    }
                 }
             }
         }
@@ -66,7 +70,7 @@ namespace Web.user
                             base.Response.Cookies.Add(cook);
                             if (base.Request.QueryString["url"] == null)
                             {
-                                base.Response.Redirect("/user");
+                                base.Response.Redirect("/default.aspx");
                             }
                             else
                             {

@@ -45,11 +45,11 @@
             </div>
         </div>
         <div class="b_l_w" style="margin-top:5px;">
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <a><asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <asp:Button ID="login_bt" runat="server" Text="登录" CssClass="bt_hon" OnClick="login_bt_Click" OnClientClick="return yz();"></asp:Button>
             </ContentTemplate>
-            </asp:UpdatePanel>
+            </asp:UpdatePanel></a>
         </div>
         <div id="wxlogin" class="b_l_w dis" style="margin-top:5px;">
             <asp:Button ID="wx_bt" runat="server" Text="微信登录" CssClass="bt_lv" OnClick="wx_bt_Click"></asp:Button>

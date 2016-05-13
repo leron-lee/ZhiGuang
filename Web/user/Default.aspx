@@ -126,6 +126,9 @@
             <div class="w100">
                 <a href="xiaoxi.aspx"><img src="images/xiaoxi.jpg" /></a>
             </div>
+            <div class="w100">
+                <a href="/fx/.aspx"><img src="images/xiaoxi.jpg" /></a>
+            </div>
         </div>
     </div>
 </asp:Content>
