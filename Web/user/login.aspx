@@ -36,7 +36,7 @@
     <asp:Panel ID="login_pl" runat="server" DefaultButton="login_bt">
         <div class="b_l_w" style="margin-top:10px;">
             <div class="ipt">
-                <asp:TextBox ID="phone" runat="server" placeholder="请输入您的手机号码" CssClass="yan1"></asp:TextBox>
+                <asp:TextBox ID="phone" runat="server" placeholder="请输入您的用户名" ></asp:TextBox>
             </div>
         </div>
         <div class="b_l_w" style="margin-top:5px;">

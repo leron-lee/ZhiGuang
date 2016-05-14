@@ -88,7 +88,7 @@ namespace Web.admin
                                 }
                                 string ts = liu.MD5(t2).Substring(7, 18);
                                 string sqlstring = "select password from adminlogin where username=@username";
-                                string SqlString2 = "select count(*) from wysdv where username=@username ";
+                                string SqlString2 = "select count(*) from poweruser where Status=2 and UserName=@username ";
                                 if (ts == new SqlHelper().ExecuteScalar(sqlstring, sp))
                                 {
                                     HttpCookie cook = new HttpCookie("adminusername");

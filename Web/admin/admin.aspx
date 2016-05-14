@@ -61,6 +61,7 @@
             <li><a href="javascript:ifrshw('username/um_sel.aspx',this);">会员管理</a></li>
       
             <li><a href="javascript:ifrshw('username/wysdv.aspx',this);">代理申请</a></li>
+            <li><a href="javascript:ifrshw('UserReview.aspx',this);">门店申请审核</a></li>
           
         </ul>
     </li>

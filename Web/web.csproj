@@ -646,6 +646,7 @@
     <Content Include="admin\username\wysdv.aspx" />
     <Content Include="admin\username\wysdv_up.aspx" />
     <Content Include="admin\username\wyzdl.aspx" />
+    <Content Include="admin\UserReview.aspx" />
     <Content Include="admin\wx\can.aspx" />
     <Content Include="admin\wx\getuser.aspx" />
     <Content Include="admin\wx\huifu.aspx" />
@@ -725,6 +726,8 @@
     <Content Include="dzp\images\title-bg-orange.png" />
     <Content Include="dzp\images\title-bg-red.png" />
     <Content Include="fx\Apply.aspx" />
+    <Content Include="fx\ApplyInfor.aspx" />
+    <Content Include="fx\ApplyResult.aspx" />
     <Content Include="fy\fy.aspx" />
     <Content Include="fy\fy.css" />
     <Content Include="fy\fy.js" />
@@ -1894,6 +1897,13 @@
     <Compile Include="admin\username\wyzdl.aspx.designer.cs">
       <DependentUpon>wyzdl.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\UserReview.aspx.cs">
+      <DependentUpon>UserReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UserReview.aspx.designer.cs">
+      <DependentUpon>UserReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\wx\can.aspx.cs">
       <DependentUpon>can.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2234,6 +2244,20 @@
     </Compile>
     <Compile Include="fx\Apply.aspx.designer.cs">
       <DependentUpon>Apply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fx\ApplyInfor.aspx.cs">
+      <DependentUpon>ApplyInfor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fx\ApplyInfor.aspx.designer.cs">
+      <DependentUpon>ApplyInfor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fx\ApplyResult.aspx.cs">
+      <DependentUpon>ApplyResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fx\ApplyResult.aspx.designer.cs">
+      <DependentUpon>ApplyResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="fy\fy.aspx.cs">
       <DependentUpon>fy.aspx</DependentUpon>
