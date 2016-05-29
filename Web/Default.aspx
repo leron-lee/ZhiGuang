@@ -3,8 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
 
-        function huangou()
-        {
+        function huangou() {
             alert("您当前积分不足不能换购，继续加油！");
         }
 
@@ -141,26 +140,28 @@
                     <tr>
                         <td style="text-align: center; height: 45px;">
                             <a href="/user/wyzq.aspx">
-                                <img src="images/y1.png" width="45" class="now" /></a>
+                                <img src="images/y3.png" width="45" class="now" /></a>
                         </td>
                         <td style="text-align: center;">
-                            <a href="/user/">
+                            <a href="lottery.aspx">
                                 <img src="images/y5.png" width="45" class="now" /></a>
                         </td>
                         <td style="text-align: center;">
-                            <a href="pro_l.aspx?id=51"><img src="images/y3.png" width="45" class="now" /></a>
+                            <a href="pro_l.aspx?id=51">
+                                <img src="images/y1.png" width="45" class="now" /></a>
                         </td>
                         <td style="text-align: center;">
-                            <a href="html.aspx?id=27"><img src="images/y4.png" width="45" class="now" /></a>
+                            <a href="html.aspx?id=27">
+                                <img src="images/y4.png" width="45" class="now" /></a>
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: center; font-size: 12px; height: 30px;">我要推广</td>
-                        <td style="text-align: center; font-size: 12px;">我的钱包</td>
-                        <td style="text-align: center; font-size: 12px;">分享有礼</td>
-                        <td style="text-align: center; font-size: 12px;">摇一摇</td>
+                        <td style="text-align: center; font-size: 12px; height: 30px;">分享有礼</td>
+                        <td style="text-align: center; font-size: 12px;">抽奖</td>
+                        <td style="text-align: center; font-size: 12px;">免费资源</td>
+                        <td style="text-align: center; font-size: 12px;">公益活动</td>
                     </tr>
-                 
+
                 </tbody>
             </table>
             <div class="b_l_w" style="margin-bottom: 5px;">
@@ -207,7 +208,6 @@
 
             </div>
             <asp:Panel ID="Panel1" runat="server" Visible="false">
-               
             </asp:Panel>
 
 
@@ -261,12 +261,12 @@
             </asp:Panel>
         </div>
 
-       
-    </div>
-    
-   
 
-      
+    </div>
+
+
+
+
 
 
 
@@ -283,9 +283,11 @@
                     </div>
                     <div class="b_l_w" style="margin-top: 5px;">
                         <div class="b_l">
-                            <b style="color: red; font-size: 16px;">￥<%#get.jg(Eval("id"),Request) %></b></div>
+                            <b style="color: red; font-size: 16px;">￥<%#get.jg(Eval("id"),Request) %></b>
+                        </div>
                         <div class="b_r">
-                            <s>￥<%#Eval("s1") %></s></div>
+                            <s>￥<%#Eval("s1") %></s>
+                        </div>
                         <%--<span style="color:#999999;">销量:<%#Eval("s3") %></span>--%>
                     </div>
                 </div>
@@ -310,14 +312,16 @@
                     <div class="b_l_w" style="margin-top: 5px;">
                         <div class="b_l_w">
                             <div class="b_l">
-                                <s>￥<%#Eval("s1") %></s></div>
+                                <s>￥<%#Eval("s1") %></s>
+                            </div>
                             <div class='b_r'>
                                 <%#Eval("s3") %>人已购
                             </div>
                         </div>
                         <div class="b_l_w">
                             <div class="b_l">
-                                <b style="color: red; font-size: 16px;">￥<%#get.jg(Eval("id"),Request) %></b></div>
+                                <b style="color: red; font-size: 16px;">￥<%#get.jg(Eval("id"),Request) %></b>
+                            </div>
                             <div class='b_r'>
                                 <a href="pro_l.aspx?id=<%#Eval("id") %>">
                                     <img src="/images/gwc.jpg" width="25px" class="now" /></a>
@@ -331,7 +335,6 @@
         </asp:DataList>
     </div>
     <div class="b_l_w w100">
-        
     </div>
     <div class="b_l_w w100 dis" style="margin-top: 5px;">
         <table cellpadding="0" cellspacing="0" class="w100">
@@ -347,5 +350,5 @@
     </div>
 
 
-    
+
 </asp:Content>

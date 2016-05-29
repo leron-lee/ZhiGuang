@@ -79,6 +79,9 @@
                                 
                 <li class="submenu open"><a href="javascript:;"><i class="icon icon-cog"></i><span>系统管理 ⅴ</span></a>
                     <ul>
+                        <li><a href="javascript:ifrshw('/fx/InfoFX.aspx',this);">门店信息设置</a></li>
+                    </ul>
+                    <ul>
                         <li><a href="AdminFx.aspx?logout=">退出登录</a></li>
                     </ul>
                 </li>

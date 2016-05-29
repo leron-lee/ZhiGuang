@@ -30,6 +30,12 @@ namespace Web.admin
                         cookie.Expires = System.DateTime.Now.AddDays(-1.0);
                         base.Response.AppendCookie(cookie);
                     }
+                    HttpCookie cookie2 = base.Request.Cookies["fx"];
+                    if (cookie2 != null)
+                    {
+                        cookie2.Expires = System.DateTime.Now.AddDays(-1.0);
+                        base.Response.AppendCookie(cookie2);
+                    }
                     base.Response.Redirect(base.Request.RawUrl);
                 }
                 else

@@ -113,7 +113,7 @@
                             <a href="/"><img src="/images/menu/home.png" width="20px" /><br />首页</a>
                         </td>
                         <td style="width:25%;">
-                            <a href="/pro.aspx" ><img src="/images/menu/products.png" width="20px" /><br />商品</a>
+                            <a href="/fx/ShopFX.aspx" ><img src="/images/menu/products.png" width="20px" /><br />门店</a>
                         </td>
                        
                         <td style="width:25%;">

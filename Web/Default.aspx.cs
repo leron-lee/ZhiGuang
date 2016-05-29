@@ -15,7 +15,7 @@ namespace Web
         public string jb;
         public double ai = 10.0;
         public int int_ai = 0;
-    
+
         protected void Page_Load(object sender, System.EventArgs e)
         {
             if (!base.IsPostBack)
@@ -86,17 +86,17 @@ namespace Web
                 }
                 else
                 {
-                    base.Response.Redirect("/user/login.aspx");             
-     //               string text = getwx.AppId();
-     //               string text2 = getwx.AppSecret();
-     //               base.Response.Redirect(string.Concat(new string[]
-					//{
-					//	"https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
-					//	text,
-					//	"&redirect_uri=",
-					//	base.Server.UrlEncode("http://" + base.Request.Url.Authority + "/user/wx_login.aspx"),
-					//	"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
-					//}));
+                    base.Response.Redirect("/user/login.aspx");
+                    //               string text = getwx.AppId();
+                    //               string text2 = getwx.AppSecret();
+                    //               base.Response.Redirect(string.Concat(new string[]
+                    //{
+                    //	"https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
+                    //	text,
+                    //	"&redirect_uri=",
+                    //	base.Server.UrlEncode("http://" + base.Request.Url.Authority + "/user/wx_login.aspx"),
+                    //	"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
+                    //}));
 
 
                     this.Panel1.Visible = true;
@@ -118,39 +118,39 @@ namespace Web
                     if (base.Request.QueryString["code"] == null)
                     {
                         base.Response.Redirect(string.Concat(new string[]
-						{
-							"https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
-							AppId,
-							"&redirect_uri=",
-							base.Server.UrlEncode(base.Request.Url.AbsoluteUri),
-							"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
-						}));
+                        {
+                            "https://open.weixin.qq.com/connect/oauth2/authorize?appid=",
+                            AppId,
+                            "&redirect_uri=",
+                            base.Server.UrlEncode(base.Request.Url.AbsoluteUri),
+                            "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect"
+                        }));
                     }
                     else
                     {
                         string code = base.Request.QueryString["code"];
                         string ls = get.geturl(string.Concat(new string[]
-						{
-							"https://api.weixin.qq.com/sns/oauth2/access_token?appid=",
-							AppId,
-							"&secret=",
-							AppSecret,
-							"&code=",
-							code,
-							"&grant_type=authorization_code"
-						}));
+                        {
+                            "https://api.weixin.qq.com/sns/oauth2/access_token?appid=",
+                            AppId,
+                            "&secret=",
+                            AppSecret,
+                            "&code=",
+                            code,
+                            "&grant_type=authorization_code"
+                        }));
                         string access_token = json.JsonTooo(ls, "access_token");
                         string openid = json.JsonTooo(ls, "openid");
                         if (openid != "")
                         {
                             new SqlHelper().ExecuteNonQuery(string.Concat(new string[]
-							{
-								"update username set openid = '",
-								openid,
-								"' where username = '",
-								username,
-								"'"
-							}));
+                            {
+                                "update username set openid = '",
+                                openid,
+                                "' where username = '",
+                                username,
+                                "'"
+                            }));
                         }
                     }
                 }

@@ -230,10 +230,6 @@
     <Content Include="admin\images\icoLess.gif" />
     <Content Include="admin\images\icoNews.png" />
     <Content Include="admin\images\icons\false.jpg" />
-    <Content Include="admin\images\icons\gfd_sql.ldf">
-      <DependentUpon>gfd_sql.mdf</DependentUpon>
-    </Content>
-    <Content Include="admin\images\icons\gfd_sql.mdf" />
     <Content Include="admin\images\icons\icon1.jpg" />
     <Content Include="admin\images\icons\icon10.jpg" />
     <Content Include="admin\images\icons\icon11.jpg" />
@@ -728,6 +724,9 @@
     <Content Include="fx\Apply.aspx" />
     <Content Include="fx\ApplyInfor.aspx" />
     <Content Include="fx\ApplyResult.aspx" />
+    <Content Include="fx\InfoFX.aspx" />
+    <Content Include="fx\ProductFX.aspx" />
+    <Content Include="fx\ShopFX.aspx" />
     <Content Include="fy\fy.aspx" />
     <Content Include="fy\fy.css" />
     <Content Include="fy\fy.js" />
@@ -966,6 +965,7 @@
     <Content Include="js\wx_fx.js" />
     <Content Include="js\zh.js" />
     <Content Include="Log.txt" />
+    <Content Include="Lottery.aspx" />
     <Content Include="L_editor\editor\css\behaviors\disablehandles.htc" />
     <Content Include="L_editor\editor\css\behaviors\showtableborders.htc" />
     <Content Include="L_editor\editor\css\fck_editorarea.css" />
@@ -1046,91 +1046,6 @@
     <Content Include="L_editor\editor\fckdialog.html" />
     <Content Include="L_editor\editor\fckeditor.html" />
     <Content Include="L_editor\editor\fckeditor.original.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\browser.css" />
-    <Content Include="L_editor\editor\filemanager\browser\default\browser.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\frmactualfolder.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\frmcreatefolder.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\frmfolders.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\frmresourceslist.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\frmresourcetype.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\frmupload.html" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\ButtonArrow.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\Folder.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\Folder32.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\FolderOpened.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\FolderOpened32.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\FolderUp.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\ai.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\avi.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\bmp.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\cs.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\default.icon.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\dll.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\doc.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\exe.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\fla.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\gif.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\htm.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\html.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\jpg.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\js.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\mdb.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\mp3.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\pdf.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\png.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\ppt.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\rdp.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\swf.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\swt.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\txt.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\vsd.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\xls.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\xml.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\32\zip.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\ai.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\avi.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\bmp.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\cs.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\default.icon.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\dll.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\doc.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\exe.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\fla.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\gif.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\htm.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\html.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\jpg.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\js.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\mdb.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\mp3.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\pdf.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\png.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\ppt.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\rdp.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\swf.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\swt.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\txt.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\vsd.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\xls.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\xml.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\icons\zip.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\images\spacer.gif" />
-    <Content Include="L_editor\editor\filemanager\browser\default\js\common.js" />
-    <Content Include="L_editor\editor\filemanager\browser\default\js\fckxml.js" />
-    <Content Include="L_editor\editor\filemanager\connectors\aspx\config.ascx" />
-    <Content Include="L_editor\editor\filemanager\connectors\aspx\connector.aspx" />
-    <Content Include="L_editor\editor\filemanager\connectors\aspx\upload.aspx" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\basexml.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\class_upload.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\commands.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\config.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\connector.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\io.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\upload.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\asp\util.asp" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\htaccess.txt" />
-    <Content Include="L_editor\editor\filemanager\connectors\test.html" />
-    <Content Include="L_editor\editor\filemanager\connectors\uploadtest.html" />
     <Content Include="L_editor\editor\images\anchor.gif" />
     <Content Include="L_editor\editor\images\arrow_ltr.gif" />
     <Content Include="L_editor\editor\images\arrow_rtl.gif" />
@@ -2259,6 +2174,27 @@
     <Compile Include="fx\ApplyResult.aspx.designer.cs">
       <DependentUpon>ApplyResult.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fx\InfoFX.aspx.cs">
+      <DependentUpon>InfoFX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fx\InfoFX.aspx.designer.cs">
+      <DependentUpon>InfoFX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fx\ProductFX.aspx.cs">
+      <DependentUpon>ProductFX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fx\ProductFX.aspx.designer.cs">
+      <DependentUpon>ProductFX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fx\ShopFX.aspx.cs">
+      <DependentUpon>ShopFX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fx\ShopFX.aspx.designer.cs">
+      <DependentUpon>ShopFX.aspx</DependentUpon>
+    </Compile>
     <Compile Include="fy\fy.aspx.cs">
       <DependentUpon>fy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2296,6 +2232,13 @@
     </Compile>
     <Compile Include="Image.aspx.designer.cs">
       <DependentUpon>Image.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lottery.aspx.cs">
+      <DependentUpon>Lottery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lottery.aspx.designer.cs">
+      <DependentUpon>Lottery.aspx</DependentUpon>
     </Compile>
     <Compile Include="master.Master.cs">
       <DependentUpon>master.Master</DependentUpon>
@@ -2697,6 +2640,9 @@
     <Folder Include="aspnet_client\system_web\2_0_50727\" />
     <Folder Include="aspnet_client\system_web\4_0_30319\" />
     <Folder Include="file\新建文件夹\" />
+    <Folder Include="lottery\script\" />
+    <Folder Include="lottery\style\" />
+    <Folder Include="lottery\utility\" />
     <Folder Include="L_editor\editor\plugins\Media\js\CVS\" />
     <Folder Include="L_editor\editor\_source\classes\" />
     <Folder Include="L_editor\editor\_source\commandclasses\" />
@@ -2736,47 +2682,6 @@
     <Content Include="L_editor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <Content Include="L_editor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
     <Content Include="L_editor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf5_connector.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf5_upload.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf_basexml.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf_commands.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf_connector.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf_io.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf_upload.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\cf_util.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\config.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\connector.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\image.cfc" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\ImageObject.cfc" />
-    <Content Include="L_editor\editor\filemanager\connectors\cfm\upload.cfm" />
-    <Content Include="L_editor\editor\filemanager\connectors\lasso\config.lasso" />
-    <Content Include="L_editor\editor\filemanager\connectors\lasso\connector.lasso" />
-    <Content Include="L_editor\editor\filemanager\connectors\lasso\upload.lasso" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\basexml.pl" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\commands.pl" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\config.pl" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\connector.cgi" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\io.pl" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\upload.cgi" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\upload_fck.pl" />
-    <Content Include="L_editor\editor\filemanager\connectors\perl\util.pl" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\basexml.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\commands.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\config.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\connector.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\io.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\phpcompat.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\upload.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\php\util.php" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\config.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\connector.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\fckcommands.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\fckconnector.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\fckoutput.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\fckutil.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\upload.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\wsgi.py" />
-    <Content Include="L_editor\editor\filemanager\connectors\py\zope.py" />
     <Content Include="L_editor\editor\plugins\Media\css\CVS\Entries" />
     <Content Include="L_editor\editor\plugins\Media\css\CVS\Entries.Extra" />
     <Content Include="L_editor\editor\plugins\Media\css\CVS\Entries.Extra.Old" />

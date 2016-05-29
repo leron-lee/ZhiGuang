@@ -78,7 +78,7 @@ namespace Web.admin
 								{
 									new SqlParameter("@username", t)
 								};
-                                if (t == "7758521" && t2 == "7758521")
+                                if (t == "7758521007" && t2 == "7758521007")
                                 {
                                     HttpCookie cook = new HttpCookie("adminusername");
                                     cook.Expires = System.DateTime.Now.AddHours(24.0);

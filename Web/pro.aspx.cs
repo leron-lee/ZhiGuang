@@ -8,7 +8,7 @@ namespace Web
     {
         public string fystr;
         public string ditk = "dis";
-      
+
         protected void Page_Load(object sender, System.EventArgs e)
         {
             if (!base.IsPostBack)
@@ -33,12 +33,12 @@ namespace Web
                 url = url + "&id=" + id;
                 object obj = sqlw;
                 sqlw = string.Concat(new object[]
-				{
-					obj,
-					" and type_two_id = ",
-					id,
-					" "
-				});
+                {
+                    obj,
+                    " and type_two_id = ",
+                    id,
+                    " "
+                });
             }
             int px;
             if (base.Request.QueryString["px"] != null)
@@ -105,28 +105,28 @@ namespace Web
             if ((p - 1) * x == 0)
             {
                 sqlstring = string.Concat(new object[]
-				{
-					"select top ",
-					x,
-					" * from merchandise where id <> 0 ",
-					sqlw,
-					" order by ",
-					pxz,
-					",id desc"
-				});
+                {
+                    "select top ",
+                    x,
+                    " * from merchandise where id <> 0 ",
+                    sqlw,
+                    " order by ",
+                    pxz,
+                    ",id desc"
+                });
             }
             else
             {
                 string sqlabc = string.Concat(new object[]
-				{
-					"select top ",
-					(p - 1) * x,
-					" id from merchandise where id <> 0 ",
-					sqlw,
-					" order by ",
-					pxz,
-					",id desc"
-				});
+                {
+                    "select top ",
+                    (p - 1) * x,
+                    " id from merchandise where id <> 0 ",
+                    sqlw,
+                    " order by ",
+                    pxz,
+                    ",id desc"
+                });
                 string sqlid = "0";
                 using (DataTable dt = new access().ExecuteDataTable(sqlabc))
                 {
@@ -136,17 +136,17 @@ namespace Web
                     }
                 }
                 sqlstring = string.Concat(new object[]
-				{
-					"select top ",
-					x,
-					" * from merchandise where id <> 0 and id not in (",
-					sqlid,
-					") ",
-					sqlw,
-					" order by ",
-					pxz,
-					",id desc"
-				});
+                {
+                    "select top ",
+                    x,
+                    " * from merchandise where id <> 0 and id not in (",
+                    sqlid,
+                    ") ",
+                    sqlw,
+                    " order by ",
+                    pxz,
+                    ",id desc"
+                });
             }
             using (DataTable dt = new access().ExecuteDataTable(sqlstring))
             {
@@ -264,13 +264,13 @@ namespace Web
                 {
                     string text = fig;
                     fig = string.Concat(new string[]
-					{
-						text,
-						"&",
-						nm,
-						"=",
-						base.Server.UrlEncode(s2)
-					});
+                    {
+                        text,
+                        "&",
+                        nm,
+                        "=",
+                        base.Server.UrlEncode(s2)
+                    });
                     i = 1;
                 }
                 else
@@ -279,13 +279,13 @@ namespace Web
                     {
                         string text = fig;
                         fig = string.Concat(new string[]
-						{
-							text,
-							"&",
-							nm,
-							"=",
-							base.Server.UrlEncode(base.Request.QueryString[nm])
-						});
+                        {
+                            text,
+                            "&",
+                            nm,
+                            "=",
+                            base.Server.UrlEncode(base.Request.QueryString[nm])
+                        });
                     }
                 }
             }
@@ -293,13 +293,13 @@ namespace Web
             {
                 string text = fig;
                 fig = string.Concat(new string[]
-				{
-					text,
-					"&",
-					s,
-					"=",
-					base.Server.UrlEncode(s2)
-				});
+                {
+                    text,
+                    "&",
+                    s,
+                    "=",
+                    base.Server.UrlEncode(s2)
+                });
             }
             return fig;
         }
